@@ -10,10 +10,14 @@ make -j4
 make install
 
 # dminer
+apt-get install python3.10
 apt install python3-pip
 pip3 install diamond-miner pycaracal pych-client
+# pip3 install 'pych-client<0.3.0,>=0.2.3'
 
 python3 -m site | grep "site-packages"
 echo "ATTENTION: modify -- filter_private: bool = False"
 
+apt install -y docker
+apt install -y docker.io
 docker run --rm -d -p 8123:8123 clickhouse/clickhouse-server:22.6

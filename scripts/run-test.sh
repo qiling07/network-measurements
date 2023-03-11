@@ -9,10 +9,10 @@ if [[ -z "${continent}" ]]; then
 	exit 1
 fi
 
-scripts_path=/home/ubuntu/measurement/scripts
-results_path=/home/ubuntu/measurement/results
-zip_path=/home/ubuntu/measurement/results_zip
-prefix_path=/home/ubuntu/measurement/results
+scripts_path=/home/ubuntu/network-measurements/scripts
+results_path=/home/ubuntu/network-measurements/results
+zip_path=/home/ubuntu/network-measurements/results_zip
+prefix_path=/home/ubuntu/network-measurements/results
 
 count=0
 while read -r prefix12; do
