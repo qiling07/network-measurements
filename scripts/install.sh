@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo su
-apt-get udpate
+apt udpate
 
 cd zmap
 apt-get install build-essential cmake libgmp3-dev gengetopt libpcap-dev flex byacc libjson-c-dev pkg-config libunistring-dev
@@ -10,7 +10,6 @@ make -j4
 make install
 
 # dminer
-apt-get install python3.10
 apt install python3-pip
 pip3 install diamond-miner pycaracal pych-client
 # pip3 install 'pych-client<0.3.0,>=0.2.3'
