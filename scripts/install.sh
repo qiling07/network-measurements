@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo su
 apt update
 
 cd zmap
