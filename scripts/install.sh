@@ -8,6 +8,7 @@ apt-get install build-essential cmake libgmp3-dev gengetopt libpcap-dev flex bya
 cmake .
 make -j4
 make install
+cd ..
 
 # dminer
 apt install python3-pip
