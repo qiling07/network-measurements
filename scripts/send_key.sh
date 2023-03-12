@@ -10,4 +10,4 @@ fi
 
 cp ~/.aws/${sshFile} ~/.ssh/
 chmod 400 ~/.ssh/${sshFile}
-scp -i ~/.ssh/${sshFile} /home/qi/.ssh/Ohio-rsa.pem ubuntu@${targetIp}:/home/ubuntu/.ssh/
+scp -i ~/.ssh/${sshFile} /home/qi/.ssh/Ohio-rsa.pem root@${targetIp}:/root/.ssh/

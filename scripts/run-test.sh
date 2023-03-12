@@ -15,11 +15,11 @@ if [[ -z "${server}" ]]; then
 	exit 1
 fi
 
-scripts_path=/home/ubuntu/network-measurements/scripts
-results_path=/home/ubuntu/network-measurements/results
-zip_path=/home/ubuntu/network-measurements/results_zip
-prefix_path=/home/ubuntu/network-measurements/results
-log_file=/home/ubuntu/network-measurements/log
+scripts_path=/root/network-measurements/scripts
+results_path=/root/network-measurements/results
+zip_path=/root/network-measurements/results_zip
+prefix_path=/root/network-measurements/results
+log_file=/root/network-measurements/log
 myIp=3.142.185.31
 
 count=0
@@ -76,5 +76,5 @@ while read -r prefix12; do
 	tar -czf ${zip_path}/${prefix12_stripped}.tar.gz ${results_path}/${continent}/${prefix12_stripped} --remove-files &
 	echo -n `TZ=America/Detroit date +%R` >> ${log_file}
 	echo -e "\tDONE ${prefix12}\n" >> ${log_file}
-	timeout 2m scp -i /home/ubuntu/.ssh/Ohio-rsa.pem ${log_file} ubuntu@${myIp}:/home/ubuntu/collections/${continent}-${server}.log
+	timeout 2m scp -i /root/.ssh/Ohio-rsa.pem ${log_file} ubuntu@${myIp}:/home/ubuntu/collections/${continent}-${server}.log
 done <${prefix_path}/${continent}/12.prefixes

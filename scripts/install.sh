@@ -23,8 +23,8 @@ docker run --rm -d -p 8123:8123 clickhouse/clickhouse-server:22.6
 cp results_template results -r
 mkdir results_zip
 
-chmod 400 /home/ubuntu/.ssh/Ohio-rsa.pem
-scp -i /home/ubuntu/.ssh/Ohio-rsa.pem README.md ubuntu@3.142.185.31:/home/ubuntu/collections/trash/
+chmod 400 ~/.ssh/Ohio-rsa.pem
+scp -i ~/.ssh/Ohio-rsa.pem README.md ubuntu@3.142.185.31:/home/ubuntu/collections/trash/
 
 ulimit -n 65535
 ulimit -a
