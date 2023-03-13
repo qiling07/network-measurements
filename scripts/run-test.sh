@@ -49,7 +49,7 @@ while read -r prefix12; do
 		echo -n `TZ=America/Detroit date +%R` >> ${log_file}
 		echo -e "\t\tZMAP -- ${count}th prefix -- ${prefix16}.zmap" >> ${log_file}
 		echo "ZMAP -- ${count}th prefix -- ${prefix16}" >> ${results_path16}/zmap.log
-		zmap ${prefix16}  -M udp --probe-args=latency:0000 -p 53 -r 10000 -t 210 -c 5 -i eth0 \
+		zmap ${prefix16}  -M udp --probe-args=latency:0000 -p 53 -r 10000 -t 210 -c 5 \
 			--output-file=${results_path16}/${prefix16_stripped}.zmap \
 			--metadata-file=${results_path16}/temp.metadata \
 			--output-fields="icmp_responder,saddr,icmp_type,icmp_code,icmp_timestamp,icmp_rtt, origin_ttl" \
@@ -59,7 +59,7 @@ while read -r prefix12; do
 		echo -n `TZ=America/Detroit date +%R` >> ${log_file}
 		echo -e "\t\tZCOMPLEMENT -- ${count}th prefix -- ${prefix16}.zcomplement" >> ${log_file}
 		echo "ZCOMPLEMENT -- ${count}th prefix -- ${prefix16}.zcomplement" >> ${results_path16}/zcomplement.log
-		zmap ${prefix16}  -M udp --probe-args=latency:0000 -p 100 -r 10000 -t 210 -c 5 -i eth0 \
+		zmap ${prefix16}  -M udp --probe-args=latency:0000 -p 100 -r 10000 -t 210 -c 5 \
 			--output-file=${results_path16}/${prefix16_stripped}.zcomplement \
 			--metadata-file=${results_path16}/temp.metadata \
 			--output-fields="icmp_responder,saddr,icmp_type,icmp_code,icmp_timestamp,icmp_rtt, origin_ttl" \
