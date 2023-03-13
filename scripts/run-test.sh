@@ -73,7 +73,7 @@ while read -r prefix12; do
 
 	# cleanup for prefix12
 	rm ${results_path}/${continent}/${prefix12_stripped}/temp.metadata
-	tar -czf ${zip_path}/${prefix12_stripped}.tar.gz ${results_path}/${continent}/${prefix12_stripped} --remove-files &
+	tar -czf ${zip_path}/${prefix12_stripped}.tar.gz -C ${results_path}/${continent}/ ${prefix12_stripped} --remove-files &
 	echo -n `TZ=America/Detroit date +%R` >> ${log_file}
 	echo -e "\tDONE ${prefix12}\n" >> ${log_file}
 	timeout 2m scp -i /home/ubuntu/.ssh/Ohio-rsa.pem ${log_file} ubuntu@${myIp}:/home/ubuntu/collections/${continent}-${server}.log
