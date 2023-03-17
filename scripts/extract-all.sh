@@ -12,7 +12,7 @@ while read -r prefix12; do
 	prefix12_stripped="${prefix12//\//_}"
 	echo -n `TZ=America/Detroit date +%R` >> ${log_file}
 	echo -e "\tAnalyzing ${prefix12}" >> ${log_file}
-	tar -xzf ${prefix12_stripped}.tar.gz -C ${zip_path}
+	tar -xzf ${zip_path}/${prefix12_stripped}.tar.gz -C ${zip_path}
 
 	mkdir -p ${results_path}/${continent}/${prefix12_stripped}
 	while read -r prefix16; do
