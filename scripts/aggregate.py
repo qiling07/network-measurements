@@ -10,7 +10,7 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 	basic = set()
 	all = set()
 	for subsubnet16 in list(subnetN.subnets(new_prefix=16)) :
-		fileName = "/home/ubuntu/network-measurements/results/" + str(subsubnet16.supernet(new_prefix=12)).replace("/", "_") + "/" + str(subsubnet16).replace("/", "_") + ".links"
+		fileName = "/root/network-measurements/results/" + str(subsubnet16.supernet(new_prefix=12)).replace("/", "_") + "/" + str(subsubnet16).replace("/", "_") + ".links"
 		with open(fileName, 'r') as inFile :
 			for line in inFile :
 				line = line.strip().split()
