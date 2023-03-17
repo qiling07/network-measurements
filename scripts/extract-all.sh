@@ -4,7 +4,7 @@ scripts_path=/root/network-measurements/scripts
 results_path=/root/network-measurements/results
 zip_path=/root/network-measurements/results_zip
 prefix_path=/root/network-measurements/results
-log_file=/root/network-measurements/log2
+log_file=/root/network-measurements/log.16
 makeup_path=/root/network-measurements/results_zip/0.0.0.0_12
 
 if [ -f ${makeup_path}.tar.gz ]
