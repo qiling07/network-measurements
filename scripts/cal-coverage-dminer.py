@@ -18,7 +18,7 @@ def read_dminer_data(filename):
     d_data['far_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['far_addr']]
     # discard empty link
     d_data = d_data[d_data.near_addr.str.contains('.') & d_data.far_addr.str.contains('.')].reset_index()
-    d_data.apply(partial(updateLink, basicLinks, extendedLinks), axis=1)
+    d_data.apply(partial(updateLink, basicLinks=basicLinks, extendedLinks=extendedLinks), axis=1)
     return basicLinks, extendedLinks
 
 f1 = sys.argv[1]
