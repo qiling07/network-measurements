@@ -23,7 +23,7 @@ def read_dminer_data(filename):
 
 f1 = sys.argv[1]
 basic_links, extended_links = read_dminer_data(f1)
-all_links = basic_links + extended_links
+all_links = basic_links.union(extended_links)
 
 a = len(basic_links)
 b = len(all_links)
