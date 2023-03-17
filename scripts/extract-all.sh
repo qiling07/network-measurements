@@ -1,10 +1,10 @@
 #!bin/bash
 
-scripts_path=/home/ubuntu/network-measurements/scripts
-results_path=/home/ubuntu/network-measurements/results
-zip_path=/home/ubuntu/network-measurements/results_zip
-prefix_path=/home/ubuntu/network-measurements/results
-log_file=/home/ubuntu/network-measurements/log2
+scripts_path=/root/network-measurements/scripts
+results_path=/root/network-measurements/results
+zip_path=/root/network-measurements/results_zip
+prefix_path=/root/network-measurements/results
+log_file=/root/network-measurements/log2
 
 mkdir ${results_path}/${continent}
 
