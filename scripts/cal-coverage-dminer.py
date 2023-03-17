@@ -21,6 +21,20 @@ def read_dminer_data(filename):
     d_data.apply(partial(updateLink, basicLinks=basicLinks, extendedLinks=extendedLinks), axis=1)
     return basicLinks, extendedLinks
 
+def write_links(basicLinks, extendedLinks, filename) :
+    f = open(filename)
+    f.write("basicLinks ")
+    for a, b in basicLinks :
+        f.write(a + "_" + b + " ")
+    f.write("\n")
+
+    f.write("extendedLinks ")
+    for a, b in extendedLinks :
+        f.write(a + "_" + b + " ")
+    f.write("\n")
+    f.close()
+
+
 f1 = sys.argv[1]
 basic_links, extended_links = read_dminer_data(f1)
 all_links = basic_links.union(extended_links)
@@ -28,3 +42,6 @@ all_links = basic_links.union(extended_links)
 a = len(basic_links)
 b = len(all_links)
 print( a, b, int(100*a/b))
+
+f2 = sys.argv[2]
+write_links(basic_links, extended_links, f2)
