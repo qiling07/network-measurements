@@ -22,7 +22,7 @@ def read_dminer_data(filename):
     return basicLinks, extendedLinks
 
 def write_links(basicLinks, extendedLinks, filename) :
-    f = open(filename)
+    f = open(filename, 'w')
     f.write("basicLinks ")
     for a, b in basicLinks :
         f.write(a + "_" + b + " ")
