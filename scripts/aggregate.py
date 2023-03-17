@@ -25,5 +25,5 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 	basic_cnt += len(basic)
 	all_cnt += len(all)
 
-print(str(target8) + " with level " + str(levelN), basic_cnt / all_cnt)
+print(str(target8) + " with level " + str(levelN), 100 * basic_cnt / all_cnt)
 
