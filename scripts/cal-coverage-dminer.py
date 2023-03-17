@@ -9,9 +9,7 @@ def updateLink(row, basicLinks, extendedLinks):
     else :
         extendedLinks.add(key)
 
-def read_dminer_data(filename):
-    basicLinks = set()
-    extendedLinks = set()
+def read_dminer_data(filename, basicLinks, extendedLinks):
     d_data = pd.read_csv(filename, sep='\t')
     d_data['probe_dst_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['probe_dst_addr']]
     d_data['near_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['near_addr']]
@@ -35,13 +33,19 @@ def write_links(basicLinks, extendedLinks, filename) :
     f.close()
 
 
-f1 = sys.argv[1]
-basic_links, extended_links = read_dminer_data(f1)
-all_links = basic_links.union(extended_links)
+basicLinks = set()
+extendedLinks = set()
 
-a = len(basic_links)
-b = len(all_links)
-print( a, b, int(100*a/b))
+f1 = sys.argv[1]
+read_dminer_data(f1, basicLinks, extendedLinks)
 
 f2 = sys.argv[2]
-write_links(basic_links, extended_links, f2)
+read_dminer_data(f2, basicLinks, extendedLinks)
+
+allLinks = basicLinks.union(extendedLinks)
+a = len(basicLinks)
+b = len(extendedLinks)
+print( a, b, int(100*a/b))
+
+f3 = sys.argv[3]
+write_links(basicLinks=basicLinks, extendedLinks=extendedLinks, filename=f3)
