@@ -14,6 +14,10 @@ def read_dminer_data(filename, basicLinks, extendedLinks):
     d_data['probe_dst_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['probe_dst_addr']]
     d_data['near_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['near_addr']]
     d_data['far_addr'] = [i[7:] if len(i) > 7 else '' for i in d_data['far_addr']]
+
+    if d_data.shape[0] == 0 :
+        return basicLinks, extendedLinks
+
     # discard empty link
     d_data = d_data[d_data.near_addr.str.contains('.') & d_data.far_addr.str.contains('.')].reset_index()
     d_data.apply(partial(updateLink, basicLinks=basicLinks, extendedLinks=extendedLinks), axis=1)
@@ -45,7 +49,10 @@ read_dminer_data(f2, basicLinks, extendedLinks)
 allLinks = basicLinks.union(extendedLinks)
 a = len(basicLinks)
 b = len(allLinks)
-print( a, b, int(100*a/b))
+if b == 0 :
+    print("N/A " + f1 + " " + f2)
+else :
+    print( a, b, int(100*a/b))
 
 f3 = sys.argv[3]
 write_links(basicLinks=basicLinks, allLinks=allLinks, filename=f3)
