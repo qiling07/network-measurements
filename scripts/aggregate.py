@@ -1,5 +1,6 @@
 import sys
 import ipaddress as ipad
+import os
 
 target8 = ipad.ip_network(sys.argv[1])
 levelN = int(sys.argv[2])
@@ -11,6 +12,8 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 	all = set()
 	for subsubnet16 in list(subnetN.subnets(new_prefix=16)) :
 		fileName = "/home/ubuntu/network-measurements/results/" + str(subsubnet16.supernet(new_prefix=12)).replace("/", "_") + "/" + str(subsubnet16).replace("/", "_") + ".links"
+		if not os.path.isfile(fileName) :
+			continue
 		with open(fileName, 'r') as inFile :
 			for line in inFile :
 				line = line.strip().split()
