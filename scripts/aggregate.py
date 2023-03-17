@@ -6,8 +6,7 @@ target8 = ipad.ip_network(sys.argv[1])
 levelN = int(sys.argv[2])
 
 
-basic_cnt = 0
-all_cnt = 0
+coverage_list = []
 for subnetN in list(target8.subnets(new_prefix=levelN)) :
 	basic = set()
 	all = set()
@@ -22,8 +21,10 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 					basic.update(line[1:])
 				elif line[0] == "allLinks" :
 					all.update(line[1:])
-	basic_cnt += len(basic)
-	all_cnt += len(all)
+	if len(all) == 0:
+		print(subnetN)
+	else :
+		coverage_list.append(len(basic) / len(all))
 
-print(str(target8) + " with level " + str(levelN), 100 * basic_cnt / all_cnt)
+print(str(target8) + " with level " + str(levelN), sum(coverage_list) / len(coverage_list))
 
