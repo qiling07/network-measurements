@@ -26,5 +26,5 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 	else :
 		coverage_list.append(len(basic) / len(all))
 
-print(str(target8) + " with level " + str(levelN), sum(coverage_list) / len(coverage_list))
+print(str(target8) + " with level " + str(levelN), 100 * sum(coverage_list) / len(coverage_list))
 
