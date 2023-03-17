@@ -4,7 +4,7 @@ from functools import partial
 
 def updateLink(row, basicLinks, extendedLinks):
     key = (row['near_addr'], row['far_addr'])
-    if row['probe_src_port'] == "24000" :
+    if int(row['probe_src_port']) == 24000 :
         basicLinks.add(key)
     else :
         extendedLinks.add(key)
