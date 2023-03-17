@@ -22,11 +22,8 @@ for subnetN in list(target8.subnets(new_prefix=levelN)) :
 					basic.update(line[1:])
 				elif line[0] == "allLinks" :
 					all.update(line[1:])
-	if len(all) == 0:
-		print(subnetN)
-	else :
-		basic_cnt += len(basic)
-		all_cnt += len(all)
+	basic_cnt += len(basic)
+	all_cnt += len(all)
 
 print(str(target8) + " with level " + str(levelN), basic_cnt / all_cnt)
 
