@@ -7,10 +7,10 @@ prefix_path=/home/ubuntu/network-measurements/results
 log_file=/home/ubuntu/network-measurements/log.16
 makeup_path=/home/ubuntu/network-measurements/results_zip/0.0.0.0_12
 
-if [ -f ${makeup_path}.tar.gz ]
-then
-	tar -xzf ${makeup_path}.tar.gz -C ${zip_path}
-fi
+# if [ -f ${makeup_path}.tar.gz ]
+# then
+# 	tar -xzf ${makeup_path}.tar.gz -C ${zip_path}
+# fi
 
 mkdir ${results_path}
 while read -r prefix12; do
