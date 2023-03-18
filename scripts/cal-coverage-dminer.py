@@ -37,22 +37,22 @@ def write_links(basicLinks, allLinks, filename) :
     f.close()
 
 
-basicLinks = set()
-extendedLinks = set()
-
+basicLinks1 = set()
+extendedLinks1 = set()
 f1 = sys.argv[1]
-read_dminer_data(f1, basicLinks, extendedLinks)
+read_dminer_data(f1, basicLinks1, extendedLinks1)
 
+basicLinks2 = set()
+extendedLinks2 = set()
 f2 = sys.argv[2]
-read_dminer_data(f2, basicLinks, extendedLinks)
+read_dminer_data(f2, basicLinks2, extendedLinks2)
 
-allLinks = basicLinks.union(extendedLinks)
-a = len(basicLinks)
-b = len(allLinks)
-if b == 0 :
-    print("N/A " + f1 + " " + f2)
-else :
-    print( a, b, int(100*a/b))
+allLinks1 = basicLinks1.union(extendedLinks1)
+allLinks2 = basicLinks2.union(extendedLinks2)
+allLinks = allLinks1.union(allLinks2)
 
-f3 = sys.argv[3]
-write_links(basicLinks=basicLinks, allLinks=allLinks, filename=f3)
+if not (len(allLinks1) < 0.7 * len(allLinks) or len(allLinks2) < 0.7 * len(allLinks)) :
+    basicLinks = basicLinks1.union(basicLinks2)
+
+    f3 = sys.argv[3]
+    write_links(basicLinks=basicLinks1, allLinks=allLinks1, filename=f3)
